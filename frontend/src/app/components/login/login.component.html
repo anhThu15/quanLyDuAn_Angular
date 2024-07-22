@@ -1,0 +1,41 @@
+<div class="container p-5 d-flex position-absolute" style="justify-content: center; left: 100px; top: 40px;">
+  <div class="card text-center">
+      <div class="card-body">
+          <a class="navbar-brand" href="#"><img src="assets/image/18c49ce1ec7dd305506ccefdf709aae7.jpg" width="70px" alt=""><b style="color: #306d89;font-size: 23px;"> MeetingRoom</b></a>
+          <p class="card-title pt-3"><b>Đăng nhập để tiếp tục !</b></p>
+          <div class="alert alert-danger" role="alert" *ngIf="errors">
+            {{errors}}
+          </div>
+          <form class="" [formGroup]="formLogin" (ngSubmit)="onLogin(formLogin.value)">
+              <div class="mb-3">
+                <input type="email" style="width: 400px;" class="form-control" placeholder="Email" formControlName="email">
+                <div style="color: red; width: 400px; font-family: Arial, Helvetica, sans-serif;"
+                *ngIf="formLogin.get('email')?.invalid && (formLogin.get('email')?.dirty ||formLogin.get('email')?.touched)">
+                    <span *ngIf="formLogin.get('email')?.errors?.['required']">Vui lòng nhập email</span>
+                    <span *ngIf="formLogin.get('email')?.errors?.['email']">Vui lòng nhập đúng định dạng email</span>
+                </div>
+              </div>
+              <div class="mb-3">
+                <input type="password" style="width: 400px;" class="form-control" placeholder="Mật Khẩu" formControlName="password" >
+                <div style="color: red; width: 400px; font-family: Arial, Helvetica, sans-serif;"
+                *ngIf="formLogin.get('password')?.invalid && (formLogin.get('password')?.dirty ||formLogin.get('password')?.touched)">
+                  Vui lòng nhập mật khẩu
+                </div>
+              </div>
+              <button type="submit"  [disabled]="formLogin.invalid" class="btn btn" style="background-color: #306d89; color: white; width: 400px;">Đăng Nhập</button>
+            </form>
+            <p class="card-title pt-3">Hoặc tiếp tục với: </p>
+              <div class="col">
+                  <button type="button" class="btn btn-outline-light pt-3" style="color: black; width: 400px;" > <img src="assets/image/google-logo-6278331_960_720.webp" width="20px" alt=""> Google</button><br>
+                  <button type="button" class="btn btn-outline-light pt-3" style="color: black; width: 400px;" > <img src="assets/image/facebook-logo-on-transparent-isolated-background-free-vector.jpg" width="30px" alt=""> Facebook</button><br>
+                  <button type="button" class="btn btn-outline-light pt-3" style="color: black; width: 400px;" > <img src="assets/image/732221.png" width="20px" alt=""> Microsoft</button><br>
+                  <button type="button" class="btn btn-outline-light pt-3" style="color: black; width: 400px;" > <img src="assets/image/62dec0259f18b71442a15966_Apple-Logo.png" width="50px" alt=""> Apple</button><br>
+              </div>
+              <hr>
+              <div class="col">
+                  <a href="#">Bạn không đăng nhập được ? </a> - <a routerLink="sigin">Tạo tài khoản</a>
+              </div>
+            </div>
+      </div>
+  </div>
+<img  class="container-fluid p-0" height="" src="assets/image/Thiết kế chưa có tên.png" alt="">
